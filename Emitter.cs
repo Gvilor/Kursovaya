@@ -25,6 +25,8 @@ namespace Kursovaya
         public int LifeMin = 20; // минимальное время жизни частицы
         public int LifeMax = 100; // максимальное время жизни частицы
 
+        public int ParticlesPerTick = 1;
+
         public Color ColorFrom = Color.White; // начальный цвет частицы
         public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
 
@@ -41,6 +43,9 @@ namespace Kursovaya
 
         public void UpdateState()
         {
+
+            int particlesToCreate = ParticlesPerTick; // фиксируем счетчик сколько частиц нам создавать за тик
+
             foreach (var particle in particles)
             {
 
@@ -49,6 +54,13 @@ namespace Kursovaya
                 if (particle.Life < 0)// если здоровье кончилось
                 {
                     ResetParticle(particle);
+
+                    if (particlesToCreate > 0)
+                    {
+                        /* у нас как сброс частицы равносилен созданию частицы */
+                        particlesToCreate -= 1; // поэтому уменьшаем счётчик созданных частиц на 1
+                        ResetParticle(particle);
+                    }
                 }
                 else
                 {
@@ -66,18 +78,13 @@ namespace Kursovaya
                 }
             }
 
-            for (var i = 0; i < 10; ++i)
+            while (particlesToCreate >= 1)
             {
-                if (particles.Count < ParticlesCount)
-                {
+                    particlesToCreate -= 1;
                     var particle = CreateParticle(); 
                     ResetParticle(particle);
                     particles.Add(particle);
-                }
-                else
-                {
-                    break;
-                }
+                
             }
 
             // добавил генерацию частиц
