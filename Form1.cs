@@ -86,9 +86,16 @@ namespace Kursovaya
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            // в обработчике заносим положение мыши в переменные для хранения положения мыши
-            emitter.MousePositionX = e.X;
-            emitter.MousePositionY = e.Y;
+            foreach (var emitter in emitters)
+            {
+                emitter.MousePositionX = e.X;
+                emitter.MousePositionY = e.Y;
+            }
+
+            // а тут передаем положение мыши, в положение гравитона
+            point2.X = e.X;
+            point2.Y = e.Y;
+
 
         }
 
