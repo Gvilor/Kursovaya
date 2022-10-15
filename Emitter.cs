@@ -12,13 +12,13 @@ namespace Kursovaya
      {
         public int ParticlesCount = 500;
         public float GravitationX = 0;
-        public float GravitationY = 1; // пусть гравитация будет силой один пиксель за такт, нам хватит
+        public float GravitationY = 0; // пусть гравитация будет силой один пиксель за такт, нам хватит
         List<Particle> particles = new List<Particle>();
         public int MousePositionX;
         public int MousePositionY;
         public int X; // координата X центра эмиттера, будем ее использовать вместо MousePositionX
         public int Y; // соответствующая координата Y 
-        public int Direction = 0; // вектор направления в градусах куда сыпет эмиттер
+        public int Direction = 180; // вектор направления в градусах куда сыпет эмиттер
         public int Spreading = 360; // разброс частиц относительно Direction
         public int SpeedMin = 1; // начальная минимальная скорость движения частицы
         public int SpeedMax = 10; // начальная максимальная скорость движения частицы

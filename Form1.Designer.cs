@@ -33,12 +33,12 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tbDirection = new System.Windows.Forms.TrackBar();
             this.lblDirection = new System.Windows.Forms.Label();
-            this.tbGraviton = new System.Windows.Forms.TrackBar();
-            this.tbGraviton2 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbSpreading = new System.Windows.Forms.TrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpreading)).BeginInit();
             this.SuspendLayout();
             // 
             // picDisplay
@@ -59,47 +59,58 @@
             // 
             // tbDirection
             // 
-            this.tbDirection.Location = new System.Drawing.Point(0, 455);
+            this.tbDirection.Location = new System.Drawing.Point(805, 12);
             this.tbDirection.Maximum = 359;
             this.tbDirection.Name = "tbDirection";
-            this.tbDirection.Size = new System.Drawing.Size(231, 56);
+            this.tbDirection.Size = new System.Drawing.Size(213, 56);
             this.tbDirection.TabIndex = 1;
             this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
             // 
             // lblDirection
             // 
             this.lblDirection.AutoSize = true;
-            this.lblDirection.Location = new System.Drawing.Point(237, 455);
+            this.lblDirection.Location = new System.Drawing.Point(977, 52);
             this.lblDirection.Name = "lblDirection";
             this.lblDirection.Size = new System.Drawing.Size(0, 16);
             this.lblDirection.TabIndex = 2;
             this.lblDirection.Click += new System.EventHandler(this.lblDirection_Click);
             // 
-            // tbGraviton
+            // label1
             // 
-            this.tbGraviton.Location = new System.Drawing.Point(289, 455);
-            this.tbGraviton.Maximum = 100;
-            this.tbGraviton.Name = "tbGraviton";
-            this.tbGraviton.Size = new System.Drawing.Size(189, 56);
-            this.tbGraviton.TabIndex = 3;
-            this.tbGraviton.Scroll += new System.EventHandler(this.tbGraviton_Scroll);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(814, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Направление ";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // tbGraviton2
+            // tbSpreading
             // 
-            this.tbGraviton2.Location = new System.Drawing.Point(535, 455);
-            this.tbGraviton2.Maximum = 100;
-            this.tbGraviton2.Name = "tbGraviton2";
-            this.tbGraviton2.Size = new System.Drawing.Size(166, 56);
-            this.tbGraviton2.TabIndex = 4;
-            this.tbGraviton2.Scroll += new System.EventHandler(this.tbGraviton2_Scroll);
+            this.tbSpreading.Location = new System.Drawing.Point(805, 92);
+            this.tbSpreading.Maximum = 359;
+            this.tbSpreading.Name = "tbSpreading";
+            this.tbSpreading.Size = new System.Drawing.Size(213, 56);
+            this.tbSpreading.TabIndex = 4;
+            this.tbSpreading.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(814, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Разброс";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 507);
-            this.Controls.Add(this.tbGraviton2);
-            this.Controls.Add(this.tbGraviton);
+            this.ClientSize = new System.Drawing.Size(1030, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbSpreading);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDirection);
             this.Controls.Add(this.tbDirection);
             this.Controls.Add(this.picDisplay);
@@ -108,8 +119,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpreading)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,8 +131,9 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TrackBar tbDirection;
         private System.Windows.Forms.Label lblDirection;
-        private System.Windows.Forms.TrackBar tbGraviton;
-        private System.Windows.Forms.TrackBar tbGraviton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar tbSpreading;
+        private System.Windows.Forms.Label label2;
     }
 }
 
