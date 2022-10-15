@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1;
 using static Kursovaya.Particle;
 
 namespace Kursovaya
@@ -17,6 +18,8 @@ namespace Kursovaya
         Emitter emitter; // добавили эмиттер
         GravityPoint point1; // добавил поле под первую точку
         GravityPoint point2; // добавил поле под вторую точку
+        Teleport input = new Teleport(1);
+        Teleport output = new Teleport(2);
 
 
         public Form1()
@@ -70,11 +73,41 @@ namespace Kursovaya
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (var emitter in emitters)
-            {
-                emitter.MousePositionX = e.X;
-                emitter.MousePositionY = e.Y;
-            }
+           
+            
+                if (e.Button == MouseButtons.Left)
+                {
+                    emitter.impactPoints.Remove(input);
+                    input = new Teleport(1);
+
+                    input.X = e.X;
+                    input.Y = e.Y;
+
+                    input.Xt = output.X;
+                    input.Yt = output.Y;
+
+                    output.Xt = input.X;
+                    output.Yt = input.Y;
+
+                    emitter.impactPoints.Add(input);
+                }
+                else if (e.Button == MouseButtons.Right)
+                {
+                    emitter.impactPoints.Remove(output);
+                    output = new Teleport(2);
+
+                    output.X = e.X;
+                    output.Y = e.Y;
+
+                    output.Xt = input.X;
+                    output.Yt = input.Y;
+
+                    input.Xt = output.X;
+                    input.Yt = output.Y;
+
+                    emitter.impactPoints.Add(output);
+                }
+            
 
         }
 
